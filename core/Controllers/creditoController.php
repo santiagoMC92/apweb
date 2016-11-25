@@ -104,7 +104,7 @@ class creditoController{
             if($P["estatus"]=="0" && ((strtotime($P["fechaDePago"])-strtotime(date('Y-m-d')))/86400)<0 && $bandera==0){
                 //$Date=date('y-m-d');
                 $Date=date('Y-m-d',strtotime('-2 days', strtotime(date('Y-m-d'))));
-                echo "Dia: ".date("Y-m-d");
+                
                 $bandera=1;
             }
             if($bandera==1){

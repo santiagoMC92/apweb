@@ -66,14 +66,20 @@
 
                 </form>
                 <div class="form-group">  
-                  <div class="col-md-12">
+                  <div class="col-md-6">
                     <div class="box-footer">
                       <button onclick="add('Fondeador')" class="btn btn-primary">Guardar</button>
                     </div>
                   </div>
+                  <div class="col-md-6">
+                      <div class="box-footer">
+                          <button onclick="Pagos('Fondeador')" class="btn btn-primary">Generar Pagos</button>
+                      </div>
+                  </div>
                 </div>
 
             </div>
+            <div id="tablaPagos"></div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->

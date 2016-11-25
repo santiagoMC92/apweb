@@ -2,7 +2,7 @@
 
 class fondeadorModel{
 
-	function add(){
+	function add($pagos){
         //print_r($_POST);
 		$db = new Conexion();
 		$cabecera="";
@@ -22,9 +22,30 @@ class fondeadorModel{
 	        	}
 	        }
         }
-        //echo "INSERT INTO fondeador(" . $cabecera . ") VALUES(" . $values . ")";
+        
         $res1 = $db->query("INSERT INTO fondeador(" . $cabecera . ") VALUES(" . $values . ")");
-		//INSERT INTO nombre, apellido_pat, apellido_mat, rfc, curp, direccion, celular, telefono, teloficina, extencion, correo, otro, estatus, empresa, puesto, gestor
+		
+		$lastId=$db->insert_id;
+
+
+        foreach($pagos as $_Pagos){
+            $cabeceraP="";
+            $valuesP="";
+            $contP=0;
+            foreach($_Pagos as $key=>$value){
+                if($contP==0){
+                    $cabeceraP .= $key;
+                    $valuesP .= "'" . $value . "'";
+                    $contP=1;
+                }else{
+                    $cabeceraP .= "," . $key;
+                    $valuesP .= ",'" . $value . "'";
+                }
+            }
+
+            $res2 = $db->query("INSERT INTO pagosF(" . $cabeceraP . ", idFondeador) values(" . $valuesP . ",'" . $lastId . "')");
+        }
+
 		if(!$res1){
 			 echo "0";
 		}else{

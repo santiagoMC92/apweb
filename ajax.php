@@ -93,9 +93,13 @@ if($_POST) {
             $creditoModel = new CreditoModel();
             $creditoModel->deleteCredito($_POST["id"]);
             break;
-        case 'pagos':
+        case 'pagosCredito':
             require('core/Controllers/creditoController.php');
             $creditoController->getTablaPagos();
+            break;
+        case 'pagosFondeador':
+            require('core/Controllers/fondeadorController.php');
+            $fondeadorController->getPagos();
             break;
         case 'pagar':
             require('core/Controllers/creditoController.php');

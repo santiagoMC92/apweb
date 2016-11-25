@@ -519,7 +519,7 @@ function goList(modulo) {
 }
 
 
-function Pagos() {
+function Pagos(modulo) {
   var bandera=validar();
 
   if(bandera==0){
@@ -553,7 +553,7 @@ function Pagos() {
       }
     }
     //alert("mode=update"+NomModel);
-     connect.open('POST','ajax.php?mode=pagos',true);
+     connect.open('POST','ajax.php?mode=pagos'+modulo,true);
     connect.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
     connect.send(form);
   }

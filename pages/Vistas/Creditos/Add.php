@@ -164,7 +164,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="box-footer">
-                                <button onclick="Pagos()" class="btn btn-primary">Generar Pagos</button>
+                                <button onclick="Pagos('Credito')" class="btn btn-primary">Generar Pagos</button>
                             </div>
                         </div>
                     </div>
